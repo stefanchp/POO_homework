@@ -275,16 +275,10 @@ namespace test {
 				 v[i] = rand() + v[i - 1] + 1;
 			unsigned int val = v[pos];
 			bool ok = 1;
-			try {
-				v.binary_search(val);
-			} catch (std::runtime_error& e){
-				std::cout << "Vector is not sorted!!\n";
-				ok = false;
-			}
-			if (ok == 1 && pos != v.binary_search(val)) {
+			if (pos != v.binary_search(val)) {
+				throw std::runtime_error("Vector is not sorted or position is not valid!!")
 				std::cout << "Position for the value: " << val << " should be: " << pos << '\n';
 				std::cout << "and it was: " << v.binary_search(val) << '\n';
-				throw std::runtime_error("Position is not valid!");
 			}
 		});
 	}
