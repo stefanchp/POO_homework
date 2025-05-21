@@ -276,12 +276,6 @@ std::ifstream& operator>> (std::ifstream& in, vector<type>& to_read) {
 
 template<class type>
 const int vector<type>::binary_search(const type val) const {
-    for(int i = 0; i < this->size_ - 1; i++)
-        if(contents_[i] >= contents_[i + 1])
-        {
-            throw std::runtime_error("Position is not valid!");
-            return -1;
-        }
     unsigned int st = 0, dr = this->size_ - 1;
     while(st <= dr)
     {
